@@ -1,0 +1,15 @@
+for Thursday 2/26:
+
+have home page
+on home page:
+	login with Persona
+	login takes you to account page
+	on account page:
+		have ability to create and view a conference:
+		creating or viewing a conference takes you to the conference page
+		on the conference page:
+			view uploaded attendees file
+			manually add attendees
+			
+
+
