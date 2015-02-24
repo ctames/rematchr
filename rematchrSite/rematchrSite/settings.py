@@ -36,7 +36,17 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_browserid',
     'rematchrApp',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'django_browserid.auth.BrowserIDBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+	'django_browserid.context_processors.browserid',
 )
 
 MIDDLEWARE_CLASSES = (
