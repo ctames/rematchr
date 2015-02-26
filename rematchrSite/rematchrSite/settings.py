@@ -45,9 +45,6 @@ AUTHENTICATION_BACKENDS = (
     'django_browserid.auth.BrowserIDBackend',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-	'django_browserid.context_processors.browserid',
-)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
