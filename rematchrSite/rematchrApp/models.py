@@ -5,17 +5,17 @@ import json
 
 class Conference(models.Model):
 	title = models.CharField(max_length=100)
-	date = models.DateTimeField()	
-
+	date = models.DateTimeField()	 
+	
 	def __unicode__(self):
-		return self.title
+		return '%s' % self.title
 
 class Researcher(models.Model):
 	firstname = models.CharField(max_length=50)
 	lastname = models.CharField(max_length=50)
 	conference = models.ForeignKey(Conference)
-	doc_texts = models.TextField()
-	doc_urls = models.TextField()
+	doc_texts = models.TextField(blank=True)
+	doc_urls = models.TextField(blank=True)
 	
 	def set_doc_texts(self, texts):
 		self.doc_texts = json.dump(texts)
@@ -30,7 +30,7 @@ class Researcher(models.Model):
 		return json.loads(self.doc_urls)	
 
 	def __unicode__(self):
-		return self.lastname + ", " + self.firstname + " : " + self.conference
+		return '%s, %s : %s' % (self.lastname, self.firstname, self.conference)
 
 class Reviewer(models.Model):	
 	conference = models.ForeignKey(Conference)
@@ -38,4 +38,4 @@ class Reviewer(models.Model):
 	lastname = models.CharField(max_length=50)	
 
 	def __unicode__(self):
-		return self.lastname + ", " + self.firstname + " : " + self.conference
+		return '%s, %s : %s' % (self.lastname, self.firstname, self.conference)

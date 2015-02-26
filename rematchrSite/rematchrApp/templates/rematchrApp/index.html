@@ -1,0 +1,14 @@
+<h1>Welcome to Rematchr</h1>
+<h2>Conferences</h2>
+{% if conference_list %}
+	<ul>
+	{% for conference in conference_list %}
+		<li><a href="/rematchrApp/conferences/{{ conference.id }}/">
+			{{ conference.title }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>There are no conferences to display.</p>
+{% endif %}
+
+
