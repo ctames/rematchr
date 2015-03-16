@@ -1,14 +1,12 @@
-<h1>Welcome to Rematchr</h1>
-<h2>Conferences</h2>
-{% if conference_list %}
-	<ul>
-	{% for conference in conference_list %}
-		<li><a href="/rematchrApp/conferences/{{ conference.id }}/">
-			{{ conference.title }}</a></li>
-	{% endfor %}
-	</ul>
-{% else %}
-	<p>There are no conferences to display.</p>
-{% endif %}
+{% extends "rematchrApp/base.html" %}
 
+{% block title %}Rematchr{% endblock %}
+
+{% block maintitle %}Rematchr{% endblock %}
+
+{% block content %}
+Welcome! Rematchr is a webapp for automatically generating matches between 
+researchers and reviewers for conferences. To learn more and see a tutorial,
+check out the "About" tab. To get started, log in with Mozilla Persona.
+{% endblock %}
 
