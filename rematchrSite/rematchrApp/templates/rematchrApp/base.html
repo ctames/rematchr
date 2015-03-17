@@ -1,19 +1,23 @@
 {% load staticfiles %}
+{% load browserid %}
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<title>{% block title %}Base Page{% endblock %}</title>
+	{% browserid_css %} 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
 	<link rel="stylesheet" type="text/css" href="{% static 'rematchrApp/base.css' %}" />
-
+	
 	{% block style %}
 	{% endblock %}
 
 </head>
 
 <body>
+{% browserid_info %}
 <div id="container">
 
 <div id="header">
@@ -23,9 +27,9 @@
 {% block menubar %}
 <div id="menubar">
 	<ul>
-	<li><a href="">Home</a></li>	
-	<li><a href="">About</a></li>	
-	<li><a href="">Account</a></li>
+	<li><a href="/rematchrApp/">Home</a></li>	
+	<li><a href="/rematchrApp/about/">About</a></li>	
+	<li><a href="/rematchrApp/account/">Account</a></li>
 	</ul>	
 </div>
 {% endblock %}
@@ -42,7 +46,7 @@ Base Page Content
 {% block footer %}
 	Created by Corey Ames - <a href="http://www.github.com/ctames/">GitHub</a>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
+	{% browserid_js %}
 {% endblock %}
 </div>
 

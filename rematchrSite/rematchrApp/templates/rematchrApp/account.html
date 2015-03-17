@@ -1,0 +1,16 @@
+{% extends "rematchrApp/base.html" %}
+
+{% load browserid %}
+{% block title %}Account Home{% endblock %}
+
+{% block maintitle %}Your Rematchr Home{% endblock %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+		{% browserid_logout text='Logout' %}
+	{% else %}
+		{% browserid_login text='Login' %}
+	{% endif %}   
+{% endblock %}
+
+

@@ -32,19 +32,30 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
+	'django_browserid',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_browserid',
+    'django.contrib.staticfiles', 
     'rematchrApp',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+	'django.contrib.auth.context_processors.auth',
+	'django.core.context_processors.request',
+)
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'django_browserid.auth.BrowserIDBackend',
 )
 
+SITE_URL = 'http://localhost:8000/rematchrApp/'
+BROWSER_CREATE_USER = True
+
+LOGIN_REDIRECT_URL = '/rematchrApp/account/'
+LOGOUT_REDIRECT_URL = '/rematchrApp/'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
