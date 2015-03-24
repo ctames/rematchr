@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.db import models
 import json
 
-
 class Conference(models.Model):
 	title = models.CharField(max_length=256)
 	date = models.DateTimeField()

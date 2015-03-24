@@ -1,0 +1,12 @@
+<!-- edit_conference.html  -->
+
+{% extends "/rematchrApp/base.html" %}
+{% load browserid %}
+{% load staticfiles %}
+{% block title %} Edit Conference {% endblock %}
+{% block maintitle %} Manage a conference {% endblock %}
+
+{% block content %}
+{{ conference.user }}
+{{ conference.title }}
+{% endblock %}

@@ -1,8 +1,15 @@
-{% extends "base.html" %}
+<!-- create_conference.html  -->
+
+{% extends "rematchrApp/base.html" %}
 {% load browserid %}
 {% load staticfiles %}
 {% block title %} New Conference {% endblock %}
 {% block maintitle %} Create a new conference {% endblock %}
-{% block content %}
 
+{% block content %}
+<form action="/rematchrApp/editconf" method="post">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value="Create"/>
+</form> 
 {% endblock %}
