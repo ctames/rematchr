@@ -7,7 +7,7 @@
 {% block maintitle %} Create a new conference {% endblock %}
 
 {% block content %}
-<form action="/rematchrApp/account/editconf/" method="post">
+<form action="/rematchrApp/account/conference/{{ id }}/" method="post">
 	{% csrf_token %}
 	<table>
 	{{ conferenceForm.as_table }}

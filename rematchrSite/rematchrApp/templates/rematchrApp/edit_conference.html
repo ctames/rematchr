@@ -7,6 +7,6 @@
 {% block maintitle %} Manage a conference {% endblock %}
 
 {% block content %}
-{{ conference.user.email }}
-{{ conference.title }}
+User: {{ conference.user.email }}<br>
+Conference: {{ conference.title }}<br>
 {% endblock %}

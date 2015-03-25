@@ -8,8 +8,11 @@
 
 {% block content %}
 	{% if user.is_authenticated %}
-		{% browserid_logout text='Logout' link_class='persona-button' %}
-		<br><a href="/rematchrApp/account/newconf/">Create New Conference</a>
+		{% browserid_logout text='Logout' link_class='persona-button' %}<br>
+		<a href="/rematchrApp/account/newconf/">Create New Conference</a><br>
+		{% for conference in conferences %}
+		<a href="/rematchrApp/account/conference/{{ conference.id }}/">{{ conference.title}}</a><br>
+		{% endfor %}
 	{% else %}
 		{% browserid_login text='Login' %}
 	{% endif %}   
