@@ -24,7 +24,8 @@ def conferenceEdit(request):
 	if request.method == 'POST':
 		form = ConferenceForm(request.POST)
 		conference = form.save(commit=False)
-		conference.user = request.user
+		if request.user.is_authenticated():
+			conference.user = request.user
 		conference.save()
 	context = { "conference" : conference, }
 	return render(request, 'rematchrApp/edit_conference.html', context)

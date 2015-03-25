@@ -8,7 +8,7 @@
 
 {% block content %}
 	{% if user.is_authenticated %}
-		{% browserid_logout text='Logout' %}
+		{% browserid_logout text='Logout' link_class='persona-button' %}
 		<br><a href="/rematchrApp/account/newconf/">Create New Conference</a>
 	{% else %}
 		{% browserid_login text='Login' %}

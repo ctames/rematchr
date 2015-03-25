@@ -7,7 +7,7 @@ import json
 class Conference(models.Model):
 	title = models.CharField(max_length=256)
 	date = models.DateTimeField()
-	user = models.ForeignKey(User, unique=True, null=True)	 
+	user = models.ForeignKey(User, null=True)	 
 		
 	def __unicode__(self):
 		return '%s' % self.title
