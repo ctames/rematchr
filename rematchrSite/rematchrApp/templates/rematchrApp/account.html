@@ -4,15 +4,34 @@
 {% load staticfiles %}
 {% load browserid %}
 {% block title %}Account Home{% endblock %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'rematchrApp/account.css' %}" />
+{% endblock %}
 {% block maintitle %}Your Rematchr Home{% endblock %}
 
 {% block content %}
 	{% if user.is_authenticated %}
-		{% browserid_logout text='Logout' link_class='persona-button' %}<br>
-		<a href="/rematchrApp/account/newconf/">Create New Conference</a><br>
+		{% browserid_logout text='Logout' link_class='persona-button' %}
+		
+		<p><a href="/rematchrApp/account/newconf/">Create New Conference</a></p>
+		
+		<p>
+		<table style="width:100%">
+		<tr><th>Title</th><th># Researchers</th><th># Reviewers</th></tr>
+				
 		{% for conference in conferences %}
+		<tr>		
+		<td>
 		<a href="/rematchrApp/account/conference/{{ conference.id }}/">{{ conference.title}}</a><br>
+		</td>
+		<td> 0 </td>
+		<td> 0 </td>
+		</tr>
 		{% endfor %}
+
+		</table>
+		</p>
+
 	{% else %}
 		{% browserid_login text='Login' %}
 	{% endif %}   

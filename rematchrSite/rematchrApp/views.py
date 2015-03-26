@@ -20,7 +20,7 @@ def about(request):
 	return render(request, 'rematchrApp/about.html')
 
 def conferenceAdd(request):
-	id = 0
+	id = 1
 	try:
 		id = Conference.objects.latest('id').id + 1
 	except Conference.DoesNotExist:
